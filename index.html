@@ -1,0 +1,292 @@
+
+I have the current personal brand homepage template with sections: Profile, Work Experience, Organization Experience, and Education.
+
+The request is to add additional sections:
+- Skills
+- Additional Information
+- Plus one or two blank customizable sections for more content.
+
+I should add these new sections below the existing ones with the same styling to keep it uniform.
+
+For "Skills," I can add a list or tags to showcase skill areas.
+
+For "Additional Information" and the blank sections, add placeholders with brief instructions so the user can fill them.
+
+I will update the HTML by adding these three new sections with consistent style and spacing.
+
+Proceeding now.
+
+
+`personal_brand_homepage.html`
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Your Name - Personal Brand</title>
+<style>
+  :root {
+    --primary-color: #4a90e2;
+    --accent-color: #50e3c2;
+    --bg-color: #f9fafc;
+    --text-color: #2c3e50;
+    --light-text: #7f8c8d;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 1.5rem auto 3rem;
+    padding: 0 1.2rem;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 1.2rem;
+  }
+
+  header img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 3px solid var(--primary-color);
+  }
+
+  header h1 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin: 0 0 0.3rem 0;
+  }
+
+  header p {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    margin: 0;
+    max-width: 500px;
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+    background: white;
+    padding: 1.5rem 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(74,144,226,0.15);
+    transition: box-shadow 0.3s ease;
+  }
+  section:hover {
+    box-shadow: 0 8px 25px rgba(74,144,226,0.35);
+  }
+
+  section h2 {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-top: 0;
+    border-left: 6px solid var(--primary-color);
+    padding-left: 12px;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Profile */
+  #profile p {
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+
+  /* Experience and Education Lists */
+  .item {
+    margin-bottom: 1.3rem;
+  }
+
+  .item:last-child {
+    margin-bottom: 0;
+  }
+
+  .item h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+  }
+
+  .item .role {
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1rem;
+    color: #34495e;
+    margin-bottom: 0.3rem;
+  }
+
+  .item .dates {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-bottom: 0.4rem;
+  }
+
+  .item .description {
+    font-size: 0.95rem;
+    color: #2d3436;
+  }
+
+  /* Skills list styling */
+  #skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1rem;
+  }
+
+  #skills-list li {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    list-style: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    transition: background-color 0.3s ease;
+  }
+  #skills-list li:hover {
+    background: var(--accent-color);
+    cursor: default;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header {
+      justify-content: center;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2rem;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="https://via.placeholder.com/140" alt="Your Photo" />
+      <div>
+        <h1>Your Name</h1>
+        <p>A brief tagline or summary about you to capture your unique value, skills, or mission.</p>
+      </div>
+    </header>
+
+    <section id="profile">
+      <h2>Profile</h2>
+      <p>
+        Write a concise, impactful profile statement here that summarizes your professional background, key skills, and what makes you stand out. This is your elevator pitch.
+      </p>
+    </section>
+
+    <section id="work-experience">
+      <h2>Work Experience</h2>
+
+      <div class="item">
+        <h3>Company Name 1</h3>
+        <div class="role">Your Role / Position</div>
+        <div class="dates">MMM YYYY - Present</div>
+        <div class="description">
+          Briefly describe your responsibilities, achievements, and technologies used here. Focus on results.
+        </div>
+      </div>
+
+      <div class="item">
+        <h3>Company Name 2</h3>
+        <div class="role">Your Role / Position</div>
+        <div class="dates">MMM YYYY – MMM YYYY</div>
+        <div class="description">
+          Describe your role, highlights, and contributions at this position.
+        </div>
+      </div>
+    </section>
+
+    <section id="organization-experience">
+      <h2>Organization Experience</h2>
+
+      <div class="item">
+        <h3>Organization or Club Name</h3>
+        <div class="role">Your Role / Title</div>
+        <div class="dates">MMM YYYY – MMM YYYY</div>
+        <div class="description">
+          Describe your activities, leadership roles, or impact you made within this organization.
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="item">
+        <h3>Your School or University</h3>
+        <div class="role">Your Degree / Major</div>
+        <div class="dates">MMM YYYY – MMM YYYY</div>
+        <div class="description">
+          Brief notes about your education, relevant coursework, honors, or achievements.
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul id="skills-list">
+        <li>Skill One</li>
+        <li>Skill Two</li>
+        <li>Skill Three</li>
+        <li>Skill Four</li>
+        <li>Skill Five</li>
+        <!-- Add more skills as needed -->
+      </ul>
+    </section>
+
+    <section id="additional-information">
+      <h2>Additional Information</h2>
+      <p>
+        Add any extra information here that you want to highlight. This can include certifications, languages, personal projects, interests, or anything else that adds value.
+      </p>
+    </section>
+
+    <section id="extra-section-1">
+      <h2>More About Me</h2>
+      <p>
+        This is a customizable section. Use it for anything you'd like to add — testimonials, volunteer work, publications, or a personal statement.
+      </p>
+    </section>
+
+    <section id="extra-section-2">
+      <h2>Extra Section</h2>
+      <p>
+        Another space for you to add any other relevant information that boosts your personal brand and story.
+      </p>
+    </section>
+  </div>
+</body>
+</html>
+
+```
